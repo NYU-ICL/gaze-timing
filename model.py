@@ -56,11 +56,11 @@ class GazeTimingModel(nn.Module):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("C", metavar="CONTRAST", type=float,
-                        help="michelson contrast of stimulus")
+                        help="michelson contrast of stimulus; valid between [0, 1]")
     parser.add_argument("F", metavar="FREQUENCY", type=float,
-                        help="frequency of stimulus in cpd")
+                        help="frequency of stimulus in cpd; valid between [0, 4]")
     parser.add_argument("E", metavar="ECCENTRICITY", type=float,
-                        help="retinal eccentricity of stimulus in degrees")
+                        help="retinal eccentricity of stimulus in degrees; valid between [0, 20]")
     parser.add_argument("--model_path", type=str, default="./io/model.pth",
                         help="path to trained model")
     parser.add_argument("--conf_threshold", type=float, default="3.7",
