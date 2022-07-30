@@ -1,7 +1,7 @@
+#!/usr/bin/env python
 import argparse
 from pathlib import Path
 
-import matplotlib.pyplot as plt
 import numpy as np
 import torch
 import torch.nn as nn
@@ -55,11 +55,11 @@ class GazeTimingModel(nn.Module):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("C", metavar="contrast", type=float,
+    parser.add_argument("C", metavar="CONTRAST", type=float,
                         help="michelson contrast of stimulus")
-    parser.add_argument("F", metavar="frequency", type=float,
+    parser.add_argument("F", metavar="FREQUENCY", type=float,
                         help="frequency of stimulus in cpd")
-    parser.add_argument("E", metavar="eccentricity", type=float,
+    parser.add_argument("E", metavar="ECCENTRICITY", type=float,
                         help="retinal eccentricity of stimulus in degrees")
     parser.add_argument("--model_path", type=str, default="./io/model.pth",
                         help="path to trained model")
@@ -67,12 +67,16 @@ if __name__ == "__main__":
                         help="confidence threshold alpha")
     parser.add_argument("--baseline_rt", type=float, default=300,
                         help="baseline reaction time for c=1, f=1, e=0 condition in ms")
+    parser.add_argument("--plot", action="store_true",
+                        help="visualize the pdf function (requires matplotlib)")
     opt = parser.parse_args()
 
     rate = eval_rate([opt.C], [opt.F], [opt.E], model_path = opt.model_path)
-    norm_t = np.linspace(0, 2.5, 50)
-    t = norm_t * opt.baseline_rt
-    pdf = invgauss_pdf(norm_t, opt.conf_threshold, opt.conf_threshold * rate)
-    plt.plot(t, pdf)
-    plt.show()
     print("Mean RT: ", 1/rate[0] * opt.baseline_rt)
+    if opt.plot:
+        norm_t = np.linspace(0, 2.5, 50)
+        t = norm_t * opt.baseline_rt
+        pdf = invgauss_pdf(norm_t, opt.conf_threshold, opt.conf_threshold * rate)
+        import matplotlib.pyplot as plt
+        plt.plot(t, pdf)
+        plt.show()
