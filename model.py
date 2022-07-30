@@ -79,4 +79,7 @@ if __name__ == "__main__":
         pdf = invgauss_pdf(norm_t, opt.conf_threshold, opt.conf_threshold * rate)
         import matplotlib.pyplot as plt
         plt.plot(t, pdf)
+        plt.title("Predicted PDF")
+        plt.xlabel("Reaction Time (ms)")
+        plt.ylabel("Probability Density")
         plt.show()
