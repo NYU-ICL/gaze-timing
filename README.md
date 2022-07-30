@@ -1,6 +1,6 @@
 # Image Features Influence Reaction Time:<br/>A Learned Probabilistic Perceptual Model for Saccade Latency
 
-[\[project page\]](https://research.nvidia.com/publication/2022-08_image-features-influence-reaction-time-learned-probabilistic-perceptual-model) [\[arXiv\]](https://arxiv.org/abs/2205.02437)
+[\[project page\]](https://budmonde.com/projects/gaze-timing) [\[arXiv\]](https://arxiv.org/abs/2205.02437)
 
 ![](docs/teaser.png)
 
@@ -52,3 +52,5 @@ ACM Transactions on Graphics 41(4) (Proceedings of ACM SIGGRAPH 2022)
 ## Coverage
 
 - [SIGGRAPH 2022 Best Paper Award Blog Post](https://blog.siggraph.org/2022/07/siggraph-2022-technical-papers-awards-best-papers-and-honorable-mentions.html/)
+- [NVIDIA Project Page](https://research.nvidia.com/publication/2022-08_image-features-influence-reaction-time-learned-probabilistic-perceptual-model)
+- [NYU Project page](https://www.immersivecomputinglab.org/publication/image-features-influence-reaction-time-a-learned-probabilistic-perceptual-model-for-saccade-latency/)
