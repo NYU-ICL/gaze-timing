@@ -30,7 +30,7 @@ def eval_rate(c, f, e, model_path = "./io/model.pth"):
 
 
 def invgauss_pdf(t, alpha, rate, epsilon=1e-12):
-    return alpha / (2 * np.pi * t + epsilon) ** 0.5 * np.exp(-(alpha - rate * t) ** 2 / (2 * t + epsilon))
+    return alpha / (2 * np.pi * t ** 3 + epsilon) ** 0.5 * np.exp(-(alpha - rate * t) ** 2 / (2 * t + epsilon))
 
 
 class GazeTimingModel(nn.Module):
